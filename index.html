@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regal||Vintage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url(wallpaperflare.com_wallpaper.jpg);
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card {
+            width: 80%;
+            height: 80%;
+            border: transparent;
+            margin: auto;
+            /* Center the card */
+            margin-top: 10%;
+        }
+
+        .card-header,
+        .card-body,
+        .card-footer {
+            border-bottom: transparent;
+            padding: 10px;
+        }
+
+        .card-header {
+            height: 50%;
+        }
+
+        .card-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            height: 60%;
+            /* Adjusted height */
+            background-color: #ffffff;
+            /* White background color for the body */
+        }
+
+        .card-footer {
+            height: 20%;
+            /* Adjusted height */
+            display: flex;
+            align-items: center;
+        }
+
+        .card-footer button {
+            margin-left: auto;
+        }
+
+        /* CSS for divider line */
+        .divider {
+            border-right: 1px solid #dee2e6;
+        }
+
+        /* CSS for carousel height */
+        .carousel {
+            height: 100%;
+        }
+
+        .carousel-inner {
+            height: 100%;
+            /* Adjusted height to fit within left_col */
+        }
+
+        .carousel-indicators li {
+            background-color: transparent;
+            /* Transparent background for carousel indicators */
+            border: 2px solid #343a40;
+            /* Dark grey border for carousel indicators */
+        }
+
+        .carousel-indicators .active {
+            background-color: #343a40;
+            /* Dark grey color for active carousel indicator */
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1);
+            /* Invert color for carousel control icons */
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            background-color: transparent;
+            /* Transparent background for carousel controls */
+            border: none;
+            /* Remove border */
+            height: 30px;
+            /* Adjusted height for carousel controls */
+            width: 30px;
+            /* Adjusted width for carousel controls */
+
+            margin: auto;
+            /* Center the card */
+        }
+
+        .carousel-control-prev:hover .carousel-control-prev-icon,
+        .carousel-control-next:hover .carousel-control-next-icon {
+            filter: brightness(70%);
+            /* Reduce brightness on hover for carousel control icons */
+        }
+    </style>
+</head>
+<body> 
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__data">
+                <a href="#" class="nav__logo">
+                    <i class="ri-planet-line"></i><img src="car-logo.png" class="logo" alt="">
+                </a>
+    
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="ri-menu-line nav__burger"></i>
+                    <i class="ri-close-line nav__close"></i>
+                </div>
+            </div>
+    
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="#" class="nav__link">Home</a></li>
+    
+                    <li><a href="#" class="nav__link">Company</a></li>
+    
+                    <!--=============== DROPDOWN 1 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link">
+                            Analytics <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+    
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-pie-chart-line"></i> Overview
+                                </a>
+                            </li>
+    
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-arrow-up-down-line"></i> Transactions
+                                </a>
+                            </li>
+    
+                            <!--=============== DROPDOWN SUBMENU ===============-->
+                            <li class="dropdown__subitem">
+                                <div class="dropdown__link">
+                                    <i class="ri-bar-chart-line"></i> Reports <i class="ri-add-line dropdown__add"></i>
+                                </div>
+    
+                                <ul class="dropdown__submenu">
+                                    <li>
+                                        <a href="#" class="dropdown__sublink">
+                                            <i class="ri-file-list-line"></i> Documents
+                                        </a>
+                                    </li>
+    
+                                    <li>
+                                        <a href="#" class="dropdown__sublink">
+                                            <i class="ri-cash-line"></i> Payments
+                                        </a>
+                                    </li>
+    
+                                    <li>
+                                        <a href="#" class="dropdown__sublink">
+                                            <i class="ri-refund-2-line"></i> Refunds
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li><a href="#" class="nav__link">Products</a></li>
+    
+                    <!--=============== DROPDOWN 2 ===============-->
+                    <li class="dropdown__item">
+                        <div class="nav__link">
+                            Users <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                        </div>
+    
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-user-line"></i> Profiles
+                                </a>
+                            </li>
+    
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-lock-line"></i> Accounts
+                                </a>
+                            </li>
+    
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-message-3-line"></i> Messages
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <li><a href="#" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav__data">                
+                <button type="button" class="btn btn-primary" id="openSignUp">
+                    Sign in /Sign up
+                </button>                                
+            </div>
+        </nav>
+    </header>
+    <div class="main">
+        <div class="text">
+            <h4>Powerful, Fun and</h4>
+            <h1>Fierce to <br> <span>Drive</span></h1>
+            <p>The only thing matters is whose behind the Wheel</p>
+           <div class="carousel">
+                <div class="carousel-item">
+                    <div class="slide-image" style="background-image:  
+                                                            		url('wallpaperflare.com_wallpaper (5).jpg');">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="slide-image"
+                        style="background-image:  
+                                        		url('https://c4.wallpaperflare.com/wallpaper/822/301/267/1969-ford-mustang-fastback-john-wick-boss-429-hd-wallpaper-preview.jpg');">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="slide-image"
+                        style="background-image:  
+                                        		url('https://c4.wallpaperflare.com/wallpaper/621/849/256/ford-mustang-boss-302-1970-wallpaper-preview.jpg');">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="slide-image"
+                        style="background-image:  
+                                        		url('https://c4.wallpaperflare.com/wallpaper/582/521/223/ford-mustang-car-muscle-cars-wallpaper-preview.jpg');">
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 divider">
+            <div id="car-carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#car-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#car-carousel" data-slide-to="1"></li>
+                    <li data-target="#car-carousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <!-- First Card -->
+                    <div class="carousel-item active">
+                        <div class="card">
+                            <div class="card-header">
+                                <img src="wallpaperflare.com_wallpaper (1).jpg" alt="Car Image 1">
+                            </div>
+                            <div class="card-body">
+                                Unleash the Legend: Mustang '69 - Where Power Meets Passion!
+                            </div>
+                            <div class="card-footer">
+                                Price: $1000
+                                <button class="btn btn-primary">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Second Card -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-header">
+                                <img src="wallpaperflare.com_wallpaper (2).jpg" alt="Car Image 2">
+                            </div>
+                            <div class="card-body">
+
+                                "1969 Mustang: Where Power Meets Passion, and Legends Are Born."
+                            </div>
+                            <div class="card-footer">
+                                Price: $1200
+                                <button class="btn btn-primary">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Third Card -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="card-header">
+                                <img src="wallpaperflare.com_wallpaper (5).jpg" alt="Car Image 3">
+                            </div>
+                            <div class="card-body">
+                                "Revving through time, the '69 Mustang roars eternal."
+                            </div>
+                            <div class="card-footer">
+                                Price: $1500
+                                <button class="btn btn-primary">Book Now</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#car-carousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#car-carousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <form id="booking_form">
+                <div class="form-group">
+                    <label for="where_to">Where To:</label>
+                    <select id="where_to" name="where_to" class="form-control">
+                        <option value="">Select destination</option>
+                        <ul class="dropdown__menu">
+                            <li>
+                                <a href="#" class="dropdown__link">
+                                    <i class="ri-pie-chart-line"></i> Overview
+                                </a>
+                            </li>
+                            <option> India</option>
+                            <option> UK</option>
+                            <option> USA</option>
+                            <option> Europe</option>
+                            <option> Germany</option>
+                            <option> Canada</option>
+                            <option> England</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="persons">How many persons:</label>
+                    <input type="number" id="persons" name="persons" class="form-control" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="start_date">Start Date:</label>
+                    <input type="date" id="start_date" name="start_date" class="form-control" min="2024-02-18">
+                </div>
+                <div class="form-group">
+                    <label for="end_date">End Date:</label>
+                    <input type="date" id="end_date" name="end_date" class="form-control" min="2024-02-19">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4" cols="50" class="form-control"></textarea>
+                </div>
+                <button type="submit" id="book_now" class="btn btn-primary">Book Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+  <!-- Modal -->
+<div class="modal fade" id="modal-success" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Bookings</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Your Booking is Done
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-validataion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Bookings</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Please fill all mandatory fields.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Login Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <!-- <div class="modal-header">
+             
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div> -->
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+<!--Login Modal -->
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <script>
+    const form = document.getElementById('booking_form');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+        // Form validation
+        const whereTo = document.getElementById('where_to');
+        const persons = document.getElementById('persons');
+        const startDate = document.getElementById('start_date');
+        const endDate = document.getElementById('end_date');
+        const description = document.getElementById('description');
+
+        // Highlight mandatory fields if not filled
+        const mandatoryFields = [whereTo, persons, startDate, endDate, description];
+        mandatoryFields.forEach(field => {
+            if (field.value.trim() === '') {
+                field.classList.add('is-invalid');
+            } else {
+                field.classList.remove('is-invalid');
+            }
+        });
+
+        // Check if all mandatory fields are filled
+        const allFieldsFilled = mandatoryFields.every(field => field.value.trim() !== '');
+        if (allFieldsFilled) {
+            // Show modal for successful booking
+            $('#modal-success').modal('show');
+            // Reset form fields
+            form.reset();
+        } else {
+            $('#modal-validataion').modal('show');
+            return false;
+        }
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+            console.log("DOMContentLoaded Event Triggered");
+            const openModalButton = document.getElementById('openSignUp');
+            const modalBody = document.querySelector('#myModal .modal-body');
+
+            openModalButton.addEventListener('click', function () {
+                console.log("OpenSignUp Event Triggered");
+                loadPage('login.html');
+            });
+
+            function loadPage(url) {
+                fetch(url)
+                    .then(response => response.text())
+                    .then(html => {
+                        console.log("loadPage Event Triggered");
+                        modalBody.innerHTML = html;
+                        $('#myModal').modal('show'); // Show Bootstrap modal
+                        const container = document.getElementById('lcontainer');
+                        const registerBtn = document.getElementById('register');
+                        const loginBtn = document.getElementById('login');
+
+                        registerBtn.addEventListener('click', () => {
+                            console.log("regigerBtn");
+                            container.classList.add("active");
+                        });
+
+                        loginBtn.addEventListener('click', () => {
+                            console.log("loginBtn");
+                            container.classList.remove("active");
+                        });
+                    })
+                    .catch(error => console.error('Error loading page:', error));
+            }
+        });
+</script>
+<div class="sticky-bottom" align="center" "><p>&copy; Copyright All rights reserved || designed by Aneruth</p></div>
+</body>
+</html>
+ </header>   
+    
+</body>
+</html>

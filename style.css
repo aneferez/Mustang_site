@@ -1,0 +1,492 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --black-color: transparent;
+  --black-color-light: hsl(210, 6%, 93%);
+  --black-color-lighten: hsl(220, 66%, 70%);
+  --white-color: #fff;
+  --body-color: hsl(220, 100%, 97%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --normal-font-size: .938rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1024px) {
+  :root {
+    --normal-font-size: 1rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+}
+
+ul {
+  list-style: none;
+  /* Color highlighting when pressed on mobile devices */
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+/*=============== HEADER ===============*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--black-color);
+  box-shadow: 0 2px 16px hsla(0, 7%, 69%, 0.3);
+  z-index: var(--z-fixed);
+}
+
+/*=============== NAV ===============*/
+.nav {
+  height: var(--header-height);
+
+}
+
+.nav__logo, 
+.nav__burger, 
+.nav__close {
+  color: var(--white-color);
+}
+
+.nav__data {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  display: inline-flex;
+  align-items: center;
+  column-gap: .25rem;
+  font-weight: var(--font-semi-bold);
+  /* Color highlighting when pressed on mobile devices */
+  /*-webkit-tap-highlight-color: transparent;*/
+}
+
+.nav__logo i {
+  font-weight: initial;
+  font-size: 1.25rem;
+}
+
+.nav__toggle {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  
+}
+
+.nav__burger, 
+.nav__close {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  inset: 0;
+  margin: auto;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: opacity .1s, transform .4s;
+}
+
+.nav__close {
+  opacity: 0;
+}
+
+/* Navigation for mobile devices */
+@media screen and (max-width: 1118px) {
+  .nav__menu {
+    position: absolute;
+    left: 0;
+    top: 2.5rem;
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    overflow: auto;
+    pointer-events: none;
+    opacity: 0;
+    transition: top .4s, opacity .3s;
+  }
+  .nav__menu::-webkit-scrollbar {
+    width: 0;
+  }
+  .nav__list {
+    background-color: transparent;
+    padding-top: 1rem;
+  }
+}
+
+.nav__link {
+  color: var(--white-color);
+  background-color: transparent;
+  font-weight: var(--font-semi-bold);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color .3s;
+}
+
+.nav__link:hover {
+  background-color: transparent;
+}
+
+/* Show menu */
+.show-menu {
+  opacity: 1;
+  top: 3.5rem;
+  pointer-events: initial;
+}
+
+/* Show icon */
+.show-icon .nav__burger {
+  opacity: 10;
+  transform: rotate(90deg);
+}
+.show-icon .nav__close {
+  opacity: 10;
+  transform: rotate(90deg);
+}
+
+/*=============== DROPDOWN ===============*/
+.dropdown__item {
+  cursor: pointer;
+}
+
+.dropdown__arrow {
+  font-size: 1.25rem;
+  font-weight: initial;
+  transition: transform .4s;
+}
+
+.dropdown__link, 
+.dropdown__sublink {
+  /* padding: 0.05rem 1.25rem 1.25rem 2.5rem; */  
+  color: var(--white-color);
+  background-color: transparent;
+  display: flex;
+  align-items: flex-end;
+  /* column-gap: .5rem; */
+  font-weight: var(--font-semi-bold);
+  transition: background-color .3s;
+}
+
+.dropdown__link i, 
+.dropdown__sublink i {
+  font-size: 1.25rem;
+  font-weight: initial;
+}
+
+.dropdown__link:hover, 
+.dropdown__sublink:hover {
+  background-color: transparent;
+}
+
+.dropdown__menu, 
+.dropdown__submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease-out;
+}
+
+/* Show dropdown menu & submenu */
+.dropdown__item:hover .dropdown__menu, 
+.dropdown__subitem:hover > .dropdown__submenu {
+  max-height: 1000px;
+  transition: max-height .5s ease-in;
+}
+
+/* Rotate dropdown icon */
+.dropdown__item:hover .dropdown__arrow {
+  transform: rotate(180deg);
+}
+
+/*=============== DROPDOWN SUBMENU ===============*/
+.dropdown__add {
+  margin-left: auto;
+}
+
+.dropdown__sublink {
+  background-color: transparent;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 340px) {
+  .container {
+    margin-inline: 1rem;
+  }
+
+  .nav__link {
+    padding-inline: 1rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1118px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav__toggle {
+    display: none;
+  }
+  .nav__list {
+    height: 100%;
+    display: flex;
+    column-gap: 3rem;
+  }
+  .nav__link {
+    height: 100%;
+    padding: 0;
+    justify-content: initial;
+    column-gap: .25rem;
+  }
+  .nav__link:hover {
+    background-color: transparent;
+  }
+
+  .dropdown__item, 
+  .dropdown__subitem {
+    position: relative;
+  }
+
+  .dropdown__menu, 
+  .dropdown__submenu {
+    max-height: initial;
+    overflow: initial;
+    position: absolute;    
+    text-align: left;
+    left: 0;
+    top: 6rem;
+    margin-top:25px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s, top .3s;
+  }
+  
+  .dropdown__submenu {
+    margin-top:10px;
+  }
+
+
+ /* .dropdown__link, 
+  .dropdown__sublink {
+     padding-inline: 1rem 3.5rem; 
+  }
+
+  .dropdown__subitem .dropdown__link {
+    padding-inline: 1rem;
+  }
+  */
+  .dropdown__submenu {
+    position: absolute;
+    left: 100%;
+    top: .5rem;
+  }
+
+  /* Show dropdown menu */
+  .dropdown__item:hover .dropdown__menu {
+    opacity: 1;
+    top: 2rem;
+    pointer-events: initial;
+    transition: top .3s;
+  }
+
+  /* Show dropdown submenu */
+  .dropdown__subitem:hover > .dropdown__submenu {
+    opacity: 1;
+    top: 0;
+    pointer-events: initial;
+    transition: top .3s;
+  }
+}
+.main{
+  width: 100%;
+  height: 100vh;
+  background: url(luca-david-HjXbVnnITvE-unsplash.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .text{
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+}
+.main .text h4{
+  font-size: 40px;
+  color: #ced6e0b5 ;
+  font-weight: 500;
+  margin-top: 10px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.main .text h1{
+  color: #ced6e0b5;
+  font-size: 65px;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-top: 30px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.main .text h1 span{
+  color: #f3d302ba;
+  font-size: 80px;
+  font-weight: bold;
+}
+.main .text p{
+  color: #b70707f7;
+  margin-top: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size:200%;
+ transform-style: var(--black-color-lighten);
+}
+
+
+.carousel { 
+  margin: auto;
+  border-radius: 2px;
+  position: relative; 
+  /* width: 100%; 
+  height:100%;   */
+  overflow: hidden; 
+  background-color: transparent; 
+  margin-bottom: 10px;
+} 
+
+/* .carousel-item .slide-image { 
+  width: 270px; 
+  height: 160px; 
+  background-size: cover;
+  background-repeat: no-repeat; 
+  border-radius: 50px;
+  background: transparent;
+} 
+
+.carousel-item { 
+  position: absolute; 
+  width: 100%; 
+  height: 100%; 
+  border: none; 
+  top: 0; 
+  left: 100%; 
+} 
+
+.carousel-item.active { 
+  left: 0;   
+  height:100%;  
+} 
+
+.carousel-item div { 
+  height: 100%; 
+}  */
+
+.red { 
+  background-color: red; 
+} 
+
+.green { 
+  background-color: green; 
+} 
+
+.yellow { 
+  background-color: yellow; 
+} 
+
+.violet { 
+  background-color: violet; 
+}
+
+.btn span {
+  background: var(--glow), rgb(81, 3, 3);
+  background-clip: text;
+  color: transparent;
+height: 100%;
+width: 100%;
+z-index: 2;
+position: relative;
+inset: 0;
+}
+
+:root:has(button:active) {
+  --size: 300px;
+}
+
+/* .btn::after {
+content: "";
+position: absolute;
+inset: -4px;
+filter: blur(20px);
+border: 4px solid transparent;
+background: var(--glow);
+border-radius: 1rem;
+} */
+.form-group label{
+  color: #ffffff;
+}
+sticky-bottom {
+  background-color: transparent;
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  
+}
+
+@media screen and (max-width: 768px) {
+  sticky-bottom {
+      position: static;
+      color: #ffffff;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family:'Times New Roman', Times, serif;
+  font-size: larger;
+}
