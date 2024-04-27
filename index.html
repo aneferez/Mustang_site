@@ -490,6 +490,42 @@
                             console.log("loginBtn");
                             container.classList.remove("active");
                         });
+                        const loginform = document.getElementById('login-form');
+                        loginform.addEventListener('submit', function (event) {
+                            event.preventDefault(); // Prevent form submission
+                            // Form validation                        
+                            const username = document.getElementById('username');
+                            const password = document.getElementById('password');        
+    
+                            // Highlight mandatory fields if not filled
+                            const mandatoryFields = [username, password];
+                            mandatoryFields.forEach(field => {
+                                if (field.value.trim() === '') {
+                                    field.classList.add('is-invalid');
+                                } else {
+                                    field.classList.remove('is-invalid');
+                                }
+                            });
+    
+                            // Check if all mandatory fields are filled
+                            const allFieldsFilled = mandatoryFields.every(field => field.value.trim() !== '');
+                            if (allFieldsFilled) {
+                                if (username.value == "admin@user.com" && password.value =="password"){
+                                    $('#myModal').modal('hide');
+                                    $('#modal-validataion .modal-body').text("Hi use.");
+                                    $('#modal-success').modal('show');                                
+                                }
+                                else{
+                                    $('#myModal').modal('hide');
+                                    $('#modal-validataion .modal-body').text("Invalid User name or password.");
+                                    $('#modal-validataion').modal('show');    
+                                }                            
+                            } else {
+                                $('#myModal').modal('hide');
+                                $('#modal-validataion .modal-body').text("Please fill all mandatory fields.");
+                                $('#modal-validataion').modal('show');
+                                return false;
+                            }                        
                     })
                     .catch(error => console.error('Error loading page:', error));
             }
